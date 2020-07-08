@@ -1,7 +1,3 @@
-# 產品管理頁面
+# 五大性格特質心理測驗
 
-##### 主要功能
-
-- 可以新增、編輯、刪除商品
-
-##### DEMO: https://wendy03.github.io/product_list/
+##### DEMO: https://wendy03.github.io/traits_test/
