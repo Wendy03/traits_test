@@ -48,11 +48,12 @@ const app = new Vue({
         });
     },
     nextPage(questionID) {
+      const vm = this;
       if (document.querySelector(`[name="${questionID}"]:checked`)) {
-        this.isCheck = true;
-        this.questionIndex += 1;
+        vm.isCheck = true;
+        vm.questionIndex += 1;
       } else {
-        this.isCheck = false;
+        vm.isCheck = false;
         Swal.fire({
           toast: true,
           text: '尚未選擇',
@@ -64,28 +65,29 @@ const app = new Vue({
       }
     },
     result(questionID) {
+      const vm = this;
       if (document.querySelector(`[name="${questionID}"]:checked`)) {
-        this.isCheck = true;
-        this.showResult = true;
-        for (index in this.questionList) {
-          const item = this.questionList[index];
-          let total = item.point.reduce((pre, cur) => pre + cur, 0);
+        vm.isCheck = true;
+        vm.showResult = true;
+        for (index in vm.questionList) {
+          const item = vm.questionList[index];
+          const total = item.point.reduce((pre, cur) => pre + cur, 0);
           if (total <= 5) {
-            this.resultList.push({
+            vm.resultList.push({
               total: total,
               degree: '低',
               category: item.categoryZH,
               description: item.description,
             });
           } else if (total <= 6) {
-            this.resultList.push({
+            vm.resultList.push({
               total: total,
               degree: '中',
               category: item.categoryZH,
               description: item.description,
             });
           } else {
-            this.resultList.push({
+            vm.resultList.push({
               total: total,
               degree: '高',
               category: item.categoryZH,
@@ -94,7 +96,7 @@ const app = new Vue({
           }
         }
       } else {
-        this.isCheck = false;
+        vm.isCheck = false;
         Swal.fire({
           toast: true,
           text: '尚未選擇',
@@ -106,12 +108,13 @@ const app = new Vue({
       }
     },
     reset() {
-      this.showResult = false;
-      this.questionIndex = 0;
-      this.resultIndex = 0;
-      this.resultList = [];
-      for (index in this.questionList) {
-        this.questionList[index].point = [0, 0];
+      const vm = this;
+      vm.showResult = false;
+      vm.questionIndex = 0;
+      vm.resultIndex = 0;
+      vm.resultList = [];
+      for (index in vm.questionList) {
+        vm.questionList[index].point = [0, 0];
       }
     },
   },
