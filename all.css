@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Microsoft JhengHei';
+}
+
+.banner {
+  position: relative;
+  z-index: -1;
+  margin: -75px;
+  height: 360px;
+  background: #dddddd center center
+    url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80');
+  background-size: cover;
+  filter: blur(3px);
+}
+
+input[type='radio'] + label {
+  font-size: 1.2rem;
+}
+
+input[type='radio']:checked + label {
+  background: #3698db;
+  color: #ffffff;
+}
