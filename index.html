@@ -22,16 +22,14 @@
       <header>
         <nav class="navbar navbar-light bg-light fixed-top">
           <div class="container">
-            <a class="navbar-brand" href="/">
-              五大性格特質心理測驗
-            </a>
+            <a class="navbar-brand" href="/"> 五大性格特質心理測驗 </a>
           </div>
         </nav>
         <div class="banner"></div>
       </header>
       <div class="container-fluid my-5" v-if="questionIndex === 0">
         <div class="d-flex justify-content-center">
-          <div class="card" style="width: 40rem;">
+          <div class="card" style="width: 40rem">
             <div class="card-body">
               <h2 class="card-title mb-4">{{name.zh}}</h2>
               <h6 class="card-subtitle mb-5 text-right text-muted">
@@ -53,10 +51,13 @@
         class="container-fluid my-5"
         v-for="(question, index) in questions"
         :key="index"
-        v-if="questionIndex === index+1 && !showResult"
       >
         <div class="d-flex justify-content-center">
-          <div class="card" style="width: 40rem;">
+          <div
+            class="card"
+            style="width: 40rem"
+            v-if="questionIndex === index+1 && !showResult"
+          >
             <div class="card-body">
               <h3 class="card-title mb-4">
                 Q{{index + 1}}. {{question.problem}}
@@ -103,10 +104,9 @@
           class="container my-5"
           v-for="(result, index) in resultList"
           :key="index"
-          v-if="resultIndex === index"
         >
           <div class="d-flex justify-content-center">
-            <div class="card" style="width: 45rem;">
+            <div class="card" style="width: 45rem" v-if="resultIndex === index">
               <div class="card-body">
                 <h3 class="card-title">{{result.category}}</h3>
                 <small class="card-subtitle mb-2 text-muted"
